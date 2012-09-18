@@ -1,5 +1,13 @@
 class CandidatesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :require_admin
+
+   def require_admin
+     unless current_user.admin?
+       logger.info "tried to access restricted area"
+       redirect_to "/"
+     end
+   end
   # GET /candidates
   # GET /candidates.json
   def index
