@@ -1,4 +1,13 @@
 class AdminController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :require_admin
+  
+  def require_admin
+    unless current_user.admin?
+      redirect_to "/"
+    end
+  end
+  
   def tally
     @candidates = Candidate.all
     users_who_voted = UserVoted.all
