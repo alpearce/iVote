@@ -1,15 +1,20 @@
 IVote::Application.routes.draw do
+  get "users/index"
+
   get "voting/index"
 
-  get "voting/vote"
+  post "voting/vote"
 
   get "voting/confirm"
 
   resources :candidates
 
   devise_for :users
+  resources :users
 
   get "public/index"
+  
+  match 'admin/tally' => 'admin#tally'
   
   root :to => 'public#index'
 

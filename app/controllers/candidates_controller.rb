@@ -1,4 +1,5 @@
 class CandidatesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /candidates
   # GET /candidates.json
   def index
@@ -41,7 +42,9 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(params[:candidate])
-
+    @candidate.yes = 0
+    @candidate.no = 0
+    @candidate.abstain = 0
     respond_to do |format|
       if @candidate.save
         format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }

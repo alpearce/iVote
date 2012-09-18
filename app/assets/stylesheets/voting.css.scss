@@ -11,14 +11,34 @@ background-color: rgb(144,238,144);
 .no
 {
 background-color: rgb(248,131,121);
+
 }
 
 .abstain
 {
 background-color: rgb(211,211,211);
+
 }
 
 .dropped
 {
 	background-color: rgb(204, 136, 153);
+}
+
+.minified
+{
+	height: 20px;
+	.candidate_image {
+		display:none;
+	}
+	.name
+	{
+		font-size: 12pt;
+	}
+}
+
+.bottom_box
+{
+	margin-bottom : 8px;
+	
 }

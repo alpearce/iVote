@@ -1,26 +1,22 @@
 <h1>Voting</h1>
 	<div class="row well">
-			<h3>Candidates</h3>
+			<h3>Candidates</h3><div class="remaining">15 YES votes remain</div>
 			<% @candidates.each do |candidate|%>
-				<div class="span2 well candidate ui-draggable">
+				<div class="span2 well candidate ui-draggable" >
+					<input class="vote" type="hidden" value="NO" />
 					<% if candidate.image_url != ""%>
-					<%= image_tag(candidate.image_url, :size=> "256x256")%>
+					<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
 					<%end%>
-					<h2><%= candidate.name%></h2>
+					<p class="name"><%= candidate.name%></p>
+					<div class="btn-group bottom_box" data-toggle="buttons-radio">
+						<button class="btn btn-success" data-loading-text="Loading, motherfucker" value="0"><i class="icon-thumbs-up"></i></button>
+						<button class="btn btn-info" value="1"><i class="icon-user" ></i></button>
+						<button class="btn btn-danger" value="2"><i class="icon-thumbs-down" ></i></button>
+					<%=hidden_field_tag 'candidate_vote', '1', {"data-candidate-id" => candidate.id, "class" => "candidate_vote"} %> 	
+					</div>
 				</div>
 				<%end%>
 		</div>
-<div class="row">
-	<div class="span3 yes well landing" data-children="0">
-		<h2>Yes</h2>
-		<span class="muted">15 remaining</span>
-	</div>
-	<div class="span3 no well landing" data-children="0">
-		<h2>No</h2>
-	</div>
-	<div class="span3 abstain well landing" data-children="0">
-		<h2>Abstain</h2>	
-	</div>
-</div>	
 
-<button class="pull-right btn btn-danger">Submit</button>
+<button class="pull-right btn btn-danger" id="submit_ballot">Submit</button>
+<%=hidden_field_tag 'user_id', current_user.id%>
