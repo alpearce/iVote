@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	var YES = 15;
+	
+	var YES = $(".remaining").attr("data-remaining");
+	var MAX = YES;
 	var ballot = {};
 	$(".btn-group").button();
 	$(".btn-success").click(function(e){
@@ -22,7 +24,7 @@ $(document).ready(function(){
 	}
 	else
 	{
-		alert("Sorry, you cannot have more than 15 YES votes.")
+		alert("Sorry, you cannot have more than " + MAX + " votes.")
 		YES = 0;
 	}
 	});
@@ -85,6 +87,39 @@ $(document).ready(function(){
 		
 		
 	});	
+	
+	
+	$("#quick_submit_ballot").click(function(){
+		$("#submit_ballot").attr("disabled", "disabled")
+		var candidate_votes = {};
+		$(".candidate_vote").each(function(index, element){
+			var candidate_id = $(element).attr("data-candidate-id");
+			var vote = $(element).val();
+			candidate_votes[candidate_id] = vote;
+			
+			
+		});
+		var ballot = {};
+		var user = $("#user_id").val();
+		ballot["ballot"] = candidate_votes;
+		ballot["user_id"] = user;
+		$.ajax({
+			url : "/voting/quickvote",
+			data : ballot,
+			type : "POST",
+			success : function (a, b, c)
+			{
+				$("#submit_ballot").attr("disabled", "");
+			},
+			error : function (a, b, c)
+			{
+				$("#submit_ballot").attr("disabled", "");
+			alert(a.responseText);	
+			}
+		});
+		
+		
+	});
 		
 		
 	});

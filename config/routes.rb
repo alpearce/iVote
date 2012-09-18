@@ -6,6 +6,10 @@ IVote::Application.routes.draw do
   post "voting/vote"
 
   get "voting/confirm"
+  
+  match "voting/quickpick" => 'voting#quickpick'
+  
+  post "voting/quickvote"
 
   resources :candidates
 
@@ -15,6 +19,10 @@ IVote::Application.routes.draw do
   get "public/index"
   
   match 'admin/tally' => 'admin#tally'
+  
+  get 'admin/advance'
+  
+  get 'admin/wipe'
   
   root :to => 'public#index'
 
