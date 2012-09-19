@@ -9,9 +9,34 @@ class AdminController < ApplicationController
   end
   
   def tally
+    @ballots = Ballot.all
     @candidates = Candidate.all
+    @candidates.each do |c|
+      c.yes = 0
+      c.no = 0
+      c.abstain = 0
+      c.save
+    end
+    @ballots.each do |ballot|
+      ballot.votes.each {|candidate_id, vote|
+        candidate = Candidate.find(candidate_id.to_i)
+        if vote == "0"
+          candidate.yes += 1
+        elsif vote == "1"
+          candidate.abstain += 1
+        elsif vote == "2"
+          candidate.no += 1
+        end
+        candidate.save
+        }
+        @candidates.each{|candidate|
+          logger.info candidate.name + " : " + candidate.yes.to_s
+        
+          }
+    end
     users_who_voted = UserVoted.all
     @number_of_votes = users_who_voted.size
+    @candidates = Candidate.all
     @candidates.sort! {|x, y| y.yes <=> x.yes}
   end
   

@@ -24,21 +24,9 @@ class VotingController < ApplicationController
     user = params[:user_id]
     @voted_already = UserVoted.find_by_user_id(user.to_i)
     if @voted_already.nil?
-      ballot.each {|candidate_id, vote|
-        candidate = Candidate.find(candidate_id.to_i)
-        if vote == "0"
-          candidate.yes += 1
-        elsif vote == "1"
-          candidate.abstain += 1
-        elsif vote == "2"
-          candidate.no += 1
-        end
-        candidate.save
-        }
-        @candidates.each{|candidate|
-          logger.info candidate.name + " : " + candidate.yes.to_s
-        
-          }
+      ballotVote = Ballot.new
+      ballotVote.votes = params[:ballot]
+      ballotVote.save
       u = UserVoted.new
       u.user_id = user.to_i
       u.voted = true
@@ -77,21 +65,9 @@ class VotingController < ApplicationController
       user = params[:user_id]
       @voted_already = UserVoted.find_by_user_id(user.to_i)
       if @voted_already.nil?
-        ballot.each {|candidate_id, vote|
-          candidate = Candidate.find(candidate_id.to_i)
-          if vote == "0"
-            candidate.yes += 1
-          elsif vote == "1"
-            candidate.abstain += 1
-          elsif vote == "2"
-            candidate.no += 1
-          end
-          candidate.save
-          }
-          @candidates.each{|candidate|
-            logger.info candidate.name + " : " + candidate.yes.to_s
-
-            }
+        ballotVote = Ballot.new
+        ballotVote.votes = ballot
+        ballotVote.save
         u = UserVoted.new
         u.user_id = user.to_i
         u.voted = true

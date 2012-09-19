@@ -3,20 +3,19 @@
 
 
 	var HIDDEN = true;
-	$(".results").hide();
+	$(".result_container").hide();
 
 $(".toggle").click(function(){
 	if (HIDDEN)
 	{
-	$(".results").show();
+	$(".result_container").show();
 	 HIDDEN = false;
 }
 else
 {
-	$(".results").hide();
+	$(".result_container").hide();
 	 HIDDEN = true;
 }	
 	
 });
-
 
