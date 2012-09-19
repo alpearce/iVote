@@ -57,6 +57,9 @@ class AdminController < ApplicationController
     UserVoted.all.each do |uv|
       uv.delete
     end
+    Ballot.all.each do |ballot|
+      ballot.delete
+    end
     redirect_to "/candidates/index"
   end
   
@@ -71,6 +74,9 @@ class AdminController < ApplicationController
     end
     UserVoted.all.each do |uv|
       uv.delete
+    end
+    Ballot.all.each do |ballot|
+      ballot.delete
     end
     redirect_to "/admin/tally"
   end
