@@ -7,7 +7,7 @@
 					<% if candidate.image_url != ""%>
 					<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
 					<% else%>
-					<%= image_tage("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "256x256", :class => "candidate_image")%>
+					<%= image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "256x256", :class => "candidate_image")%>
 					<%end%>
 					<p class="name"><%= candidate.name%></p>
 					<div class="btn-group bottom_box" data-toggle="buttons-radio">
