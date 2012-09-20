@@ -3,7 +3,7 @@ class VotingController < ApplicationController
  
   
   def index
-    @candidates = Candidate.all
+    @candidates = Candidate.all.shuffle!
     
   end
 
@@ -45,7 +45,7 @@ class VotingController < ApplicationController
   
   
   def quickpick
-    @candidates = Candidate.all
+    @candidates = Candidate.all.shuffle!
     
   end
   
