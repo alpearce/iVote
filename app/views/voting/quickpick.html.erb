@@ -5,9 +5,9 @@
 				<div class="span2 well candidate ui-draggable" >
 					<input class="vote" type="hidden" value="NO" />
 					<% if candidate.image_url != ""%>
-					<%="<a href=\"#{candidate.image_url}\"">%><%= image_tag(candidate.image_url, :width => "140", :class => "candidate_image")%></a>
+					<%="<a href=\"#{candidate.image_url}\">"%><%= image_tag(candidate.image_url, :width => "140", :class => "candidate_image")%></a>
 					<% else%>
-					<%="<a href=#{candidate.id}>"%><%= image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "140x140", :class => "candidate_image")%></a>
+					<%="<a href=\"#{candidate.image_url}\">"%><%= image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "140x140", :class => "candidate_image")%></a>
 					<%end%>
 					<p class="name"><%= candidate.name%></p>
 					<div class="btn-group bottom_box" data-toggle="buttons-radio">
