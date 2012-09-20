@@ -5,7 +5,7 @@
 				<div class="span3 well candidate ui-draggable" >
 					<input class="vote" type="hidden" value="NO" />
 					<% if candidate.image_url != ""%>
-					<%= image_tag(candidate.image_url, :height => "93", :class => "candidate_image")%>
+					<%= image_tag(candidate.image_url, :width => "140", :class => "candidate_image")%>
 					<% else%>
 					<%= image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "256x256", :class => "candidate_image")%>
 					<%end%>
