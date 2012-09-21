@@ -30,7 +30,7 @@ class AdminController < ApplicationController
         candidate.save
         }
         @candidates.each{|candidate|
-          logger.info candidate.name + " : " + candidate.yes.to_s
+          #logger.info candidate.name + " : " + candidate.yes.to_s
         
           }
           
