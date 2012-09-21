@@ -33,6 +33,8 @@ class AdminController < ApplicationController
           logger.info candidate.name + " : " + candidate.yes.to_s
         
           }
+          
+          
     end
     users_who_voted = UserVoted.all
     @number_of_votes = users_who_voted.size
