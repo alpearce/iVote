@@ -30,16 +30,11 @@ class AdminController < ApplicationController
         end
         candidate.save
         }
-        @candidates.each{|candidate|
-          #logger.info candidate.name + " : " + candidate.yes.to_s
-        
-          }
           
           
     end
     users_who_voted = UserVoted.all
     @number_of_votes = users_who_voted.size
-    @candidates = Candidate.all
     @candidates.sort! {|x, y| y.yes <=> x.yes}
   end
   
