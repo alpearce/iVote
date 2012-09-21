@@ -19,7 +19,8 @@ class AdminController < ApplicationController
     end
     @ballots.each do |ballot|
       ballot.votes.each {|candidate_id, vote|
-        candidate = Candidate.find(candidate_id.to_i)
+        candidate = @candidates.select{|s| s.id == candidate_id.to_i}.first
+        #candidate = Candidate.find(candidate_id.to_i)
         if vote == "0"
           candidate.yes += 1
         elsif vote == "1"
