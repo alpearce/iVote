@@ -11,12 +11,13 @@ class AdminController < ApplicationController
   def tally
     @ballots = Ballot.all
     @candidates = Candidate.all
-    #@candidates.each do |c|
-     # c.yes = 0
-    #  c.no = 0
-    #  c.abstain = 0
-    #  c.save
-    #end
+    @candidates.each do |c|
+      c.yes = 0
+     c.no = 0
+     c.abstain = 0
+     c.save
+    end
+    @candidates = Candidate.all
     @ballots.each do |ballot|
       ballot.votes.each {|candidate_id, vote|
         candidate = @candidates.select{|s| s.id == candidate_id.to_i}.first
