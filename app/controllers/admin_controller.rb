@@ -28,8 +28,10 @@ class AdminController < ApplicationController
         elsif vote == "2"
           candidate.no += 1
         end
+        
+        candidate.save
         }
-          candidate.save
+          
           
     end
     users_who_voted = UserVoted.all
