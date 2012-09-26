@@ -44,7 +44,7 @@ class AdminController < ApplicationController
     @vote_count = UserVoted.all.count
     @candidates = Candidate.all
     @candidates.each do |candidate|
-      if candidate.yes >= 0.80 * @vote_count || candidate.no >= 0.15 * @vote_count
+      if candidate.yes >= 40 || candidate.no >= 7 * @vote_count
         candidate.delete
       else
         candidate.yes = 0
