@@ -11,7 +11,9 @@
 					<div class="btn-group bottom_box" data-toggle="buttons-radio">
 						<button class="btn success" data-loading-text="Loading, motherfucker" value="0"><i>1st</i></button>
 						<button class="btn info" value="1"><i>2nd</i></button>
+						<%if @candidates.length > 2 %>
 						<button class="btn danger" value="2"><i>3rd</i></button>
+						<%end %>
 					<%=hidden_field_tag 'candidate_vote', '1', {"data-candidate-id" => candidate.id, "class" => "candidate_vote"} %> 	
 					</div>
 				</div>
