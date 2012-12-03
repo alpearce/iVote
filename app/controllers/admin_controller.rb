@@ -64,7 +64,10 @@ class AdminController < ApplicationController
         @outcome_1 = top_vote.name + " wins."
       else
         bottom_vote = @candidates.last
-        @outcome_1 = "No Winner Yet, " + bottom_vote.name + " eliminated with " + bottom_vote.yes.to_s + " votes"
+        @outcome_1 = ""
+        @candidates.each do |c|
+          @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number) + ")\n"
+        end
         @candidates.each do |c|
           c.yes = 0
           c.save
@@ -88,7 +91,10 @@ class AdminController < ApplicationController
             
           @candidates.sort!{|x, y| y.yes <=> x.yes}
           top_vote = @candidates[0]
-          @outcome_2 = top_vote.name + " wins!"
+          @outcome_2 = ""
+          @candidates.each do |c|
+            @outcome_2 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number) + ")\n"
+          end
       end
     end
   end
