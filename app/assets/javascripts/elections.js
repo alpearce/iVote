@@ -66,7 +66,7 @@ $(document).ready(function(){
 			
 			
 		});
-		if (y !== 1 || n !== 1 || a !== 1)
+		if (y !== 1 ||  n >= 2 || a !== 1)
 		{
 			alert("Invalid Data");
 			return;
