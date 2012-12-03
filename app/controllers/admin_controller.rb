@@ -65,7 +65,7 @@ class AdminController < ApplicationController
         @candidates.each do |c|
           @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number).to_s + ")\n"
         end
-        @outcome_1 = top_vote.name + " wins."
+        @outcome_1 += top_vote.name + " wins."
       else
         bottom_vote = @candidates.last
         @outcome_1 = ""
