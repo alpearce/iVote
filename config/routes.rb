@@ -24,7 +24,13 @@ IVote::Application.routes.draw do
   
   get 'admin/wipe'
   
+  get 'elections/election'
+  
+  post 'elections/vote'
+  
   root :to => 'public#index'
+  
+  get 'admin/irv_tally'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

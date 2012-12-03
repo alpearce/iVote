@@ -1,0 +1,22 @@
+<h1>Election Voting</h1>
+	<div class="row well">
+			<h3>Candidates</h3>
+			<% @candidates.each do |candidate|%>
+				<div class="span3 well candidate ui-draggable" >
+					<input class="vote" type="hidden" value="NO" />
+					<% if candidate.image_url != ""%>
+					<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
+					<%end%>
+					<p class="name"><%= candidate.name%></p>
+					<div class="btn-group bottom_box" data-toggle="buttons-radio">
+						<button class="btn success" data-loading-text="Loading, motherfucker" value="0"><i>1st</i></button>
+						<button class="btn info" value="1"><i>2nd</i></button>
+						<button class="btn danger" value="2"><i>3rd</i></button>
+					<%=hidden_field_tag 'candidate_vote', '1', {"data-candidate-id" => candidate.id, "class" => "candidate_vote"} %> 	
+					</div>
+				</div>
+				<%end%>
+		</div>
+
+<button class="pull-right btn btn-danger" id="elect_ballot">Submit</button>
+<%=hidden_field_tag 'user_id', current_user.id%>

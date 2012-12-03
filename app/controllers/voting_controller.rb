@@ -6,6 +6,10 @@ class VotingController < ApplicationController
     @candidates = Candidate.all.shuffle!
     
   end
+  
+  def election
+    @candidates = Candidate.all.shuffle!
+  end
 
   def vote
    

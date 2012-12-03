@@ -47,7 +47,7 @@
           <a class="brand" href="/">iVote</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Voting", "/voting/index"  %></li>
+              <li><%= link_to "Voting", "/elections/election"  %></li>
               <li><%= link_to "Candidates", "/candidates"  %></li>
 			<% if user_signed_in?%>
 			<li class="pull-right"><a>Signed in as <%= current_user.email%></a></li><li class="pull-right"><%= link_to "Log Out", destroy_user_session_path, :method=> :delete %></li>
@@ -79,7 +79,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" , controller_name %>
 
   </body>
 </html>
