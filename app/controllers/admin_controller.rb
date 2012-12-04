@@ -72,27 +72,15 @@ class AdminController < ApplicationController
         @candidates.each do |c|
           @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes.to_f / @vote_number*100).to_s + "%), "
         end
-        @candidates.each do |c|
-          c.yes = 0
-          c.save
-        end
+        @outcome_1 += bottom_vote.name + "is eliminated."
+        bottom_vote.yes = 0
         @ballots.each do |ballot|
           if ballot.votes[bottom_vote.id] == "0"
             ballot.votes[bottom_vote.id] = nil
             one_key = ballot.votes.select{|k, v| v = "1"}.keys.first
-            ballot.votes[one_key] = "0"
-            two_key = ballot.votes.select{|k,v| v = "2'"}.keys.first
-            ballot.votes[two_key] = "1"
+            @candidates.select{|s| s.id == one_key}.first.yes += 1
           end
-        end
-        @ballots.each do |ballot|
-          ballot.votes.each{|candidate_id, vote|
-            candidate = @candidates.select{|s| s.id == candidate_id.to_i}.first
-            if vote == 0
-              candidate.yes += 1
-            end
-            }
-            
+        end 
           @candidates.sort!{|x, y| y.yes <=> x.yes}
           top_vote = @candidates[0]
           @outcome_2 = ""
