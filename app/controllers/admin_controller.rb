@@ -81,14 +81,13 @@ class AdminController < ApplicationController
             @candidates.select{|s| s.id == one_key}.first.yes += 1
           end
         end 
-          @candidates.sort!{|x, y| y.yes <=> x.yes}
-          top_vote = @candidates[0]
-          @outcome_2 = ""
-          @candidates.each do |c|
+        @candidates.sort!{|x, y| y.yes <=> x.yes}
+        top_vote = @candidates[0]
+        @outcome_2 = ""
+        @candidates.each do |c|
             @outcome_2 += c.name + ": " + c.yes.to_s + "(" + (c.yes.to_f / @vote_number * 100).to_s + "%)"
           end
       end
-    end
   end
   
   def advance
