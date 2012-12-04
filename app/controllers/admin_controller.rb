@@ -41,6 +41,7 @@ class AdminController < ApplicationController
   end
   
   def irv_tally
+    debugger
     @ballots = Ballot.all
     @candidates = Candidate.all
     @candidates.each do |c|
