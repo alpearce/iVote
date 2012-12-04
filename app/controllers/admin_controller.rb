@@ -79,7 +79,7 @@ class AdminController < ApplicationController
           if ballot.votes[bottom_vote.id] == "0"
             ballot.votes[bottom_vote.id] = nil
             one_key = ballot.votes.select{|k, v| v = "1"}.keys.first
-            logger.info "Added a vote for #{one_key}"
+            puts "Added a vote for #{one_key}"
             @candidates.select{|s| s.id == one_key}.first.yes += 1
           end
         end 
