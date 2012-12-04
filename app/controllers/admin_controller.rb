@@ -63,14 +63,14 @@ class AdminController < ApplicationController
       if top_vote.yes > 0.5 * @vote_number
         @outcome_1 = ""
         @candidates.each do |c|
-          @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number*100).to_s + "%),"
+          @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number).to_s + "%),"
         end
         @outcome_1 += top_vote.name + " wins."
       else
         bottom_vote = @candidates.last
         @outcome_1 = ""
         @candidates.each do |c|
-          @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number* 100).to_s + "%), "
+          @outcome_1 += c.name + ": " + c.yes.to_s + "(" + (c.yes / @vote_number).to_s + "%), "
         end
         @candidates.each do |c|
           c.yes = 0
