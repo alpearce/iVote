@@ -84,9 +84,9 @@ class AdminController < ApplicationController
             #ballot.votes[bottom_vote.id.to_s] = nil
             one_key = ballot.votes.select{|k, v| v == "1"}.keys.first
             puts "Added a vote for #{one_key}"
-            if one_key == @one.id
+            if one_key.to_i == @one.id
               one_vote += 1
-            elsif one_key == @two.id
+            elsif one_key.to_i == @two.id
               two_vote += 1
             end
             puts "#{one_vote}"
