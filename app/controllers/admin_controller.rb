@@ -77,19 +77,26 @@ class AdminController < ApplicationController
         bottom_vote.yes = 0
         @one = @candidates[0]
         @two = @candidates[1]
+        one_vote = 0
+        two_vote = 0
         @ballots.each do |ballot|
           if ballot.votes[bottom_vote.id.to_s] == "0"
             #ballot.votes[bottom_vote.id.to_s] = nil
             one_key = ballot.votes.select{|k, v| v == "1"}.keys.first
             puts "Added a vote for #{one_key}"
             if one_key == @one.id
-              @one.yes += 1
+              one_vote += 1
             elsif one_key == @two.id
-              @two.yes += 1
+              two_vote += 1
             end
-            puts "#{@one.yes}"
+            puts "#{one_vote}"
+            puts "#{two_vote}"
           end
         end 
+        @one.yes += one_vote
+        @one.save
+        @two.yes += two_vote
+        @two.save
         @candidates.sort!{|x, y| y.yes <=> x.yes}
         top_vote = @candidates[0]
         @outcome_2 = ""
