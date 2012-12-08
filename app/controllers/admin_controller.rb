@@ -86,8 +86,7 @@ class AdminController < ApplicationController
               @one.yes += 1
             elsif one_key == @two.id
               @two.yes += 1
-            cand = @candidates.select{|s| s.id == one_key}.first
-            puts "#{cand.class} has been selected"
+            end
             
           end
         end 
