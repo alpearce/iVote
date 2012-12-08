@@ -98,9 +98,9 @@ class AdminController < ApplicationController
         two_final = @two.yes + two_vote
         @outcome_2 = ""
         if one_final > two_final
-          @outcome_2 += @one.name + ": " + one_final + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
+          @outcome_2 += @one.name + ": " + one_final.to_s + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
         else
-          @outcome_2 += @two.name + ": " + two_final + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
+          @outcome_2 += @two.name + ": " + two_final.to_s + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
         end
         
       end
