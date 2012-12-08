@@ -93,16 +93,16 @@ class AdminController < ApplicationController
             puts "#{two_vote}"
           end
         end 
-        @one.yes += one_vote
-        @one.save
-        @two.yes += two_vote
-        @two.save
-        @candidates.sort!{|x, y| y.yes <=> x.yes}
-        top_vote = @candidates[0]
+        one_final = @one.yes + one_vote
+        
+        two_final = @two.yes + two_vote
         @outcome_2 = ""
-        @candidates.each do |c|
-            @outcome_2 += c.name + ": " + c.yes.to_s + "(" + (c.yes.to_f / @vote_number * 100).to_s + "%)"
-          end
+        if one_final > two_final
+          @outcome_2 += @one.name + ": " + one_final + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
+        else
+          @outcome_2 += @two.name + ": " + two_final + "(" + (one_final.to_f / @vote_number * 100).to_s + "%)"
+        end
+        
       end
   end
   
