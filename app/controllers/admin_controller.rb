@@ -48,11 +48,21 @@ class AdminController < ApplicationController
       c.yes = 0
       c.save
     end
+    @one = @candidates[0]
+    @two = @candidates[1]
+    @three = @candidates[2]
     @ballots.each do |ballot|
       ballot.votes.each {|candidate_id, vote|
-        candidate = @candidates.select{|s| s.id.to_i == candidate_id}.first
+        candidate = @candidates.select{|s| s.id.to_i == candidate_id.to_i}.first
         if vote == "0"
-          candidate.yes += 1
+          if candidate_id.to_i == @one.id
+            @one.yes += 1
+          elsif candidate_id.to_i == @two.id
+            @two.yes += 1
+          elsif candidate_it.to_i == @three.id
+            @three.yes += 1
+          end
+          #candidate.yes += 1
         end
         
         }
