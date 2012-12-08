@@ -50,7 +50,7 @@ class AdminController < ApplicationController
     end
     @ballots.each do |ballot|
       ballot.votes.each {|candidate_id, vote|
-        candidate = @candidates.select{|s| s.id == candidate_id.to_i}.first
+        candidate = @candidates.select{|s| s.id.to_i == candidate_id.to_i}.first
         if vote == "0"
           candidate.yes += 1
         end
