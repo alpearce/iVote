@@ -59,7 +59,7 @@ class AdminController < ApplicationController
             @one.yes += 1
           elsif candidate_id.to_i == @two.id
             @two.yes += 1
-          elsif candidate_id.to_i == @three.id
+          elsif @three != nil && candidate_id.to_i == @three.id
             @three.yes += 1
           end
           #candidate.yes += 1
