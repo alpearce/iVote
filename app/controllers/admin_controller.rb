@@ -80,7 +80,9 @@ class AdminController < ApplicationController
             #ballot.votes[bottom_vote.id.to_s] = nil
             one_key = ballot.votes.select{|k, v| v == "1"}.keys.first
             puts "Added a vote for #{one_key}"
-            @candidates.select{|s| s.id == one_key}.first.yes += 1
+            cand = @candidates.select{|s| s.id == one_key}.first
+            puts "#{cand}"
+            
           end
         end 
         @candidates.sort!{|x, y| y.yes <=> x.yes}
