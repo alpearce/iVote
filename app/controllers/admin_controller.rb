@@ -87,7 +87,7 @@ class AdminController < ApplicationController
             elsif one_key == @two.id
               @two.yes += 1
             end
-            
+            puts "#{@one.yes}"
           end
         end 
         @candidates.sort!{|x, y| y.yes <=> x.yes}
