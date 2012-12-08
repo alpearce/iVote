@@ -81,7 +81,7 @@ class AdminController < ApplicationController
             one_key = ballot.votes.select{|k, v| v == "1"}.keys.first
             puts "Added a vote for #{one_key}"
             cand = @candidates.select{|s| s.id == one_key}.first
-            puts "#{cand}"
+            puts "#{cand.id} has been selected"
             
           end
         end 
