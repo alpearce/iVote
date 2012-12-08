@@ -76,9 +76,9 @@ class AdminController < ApplicationController
         @outcome_1 += bottom_vote.name + "is eliminated."
         bottom_vote.yes = 0
         @ballots.each do |ballot|
-          if ballot.votes[bottom_vote.id] == "0"
-            ballot.votes[bottom_vote.id] = nil
-            one_key = ballot.votes.select{|k, v| v = "1"}.keys.first
+          if ballot.votes[bottom_vote.id.to_s] == "0"
+            ballot.votes[bottom_vote.id.to_s] = nil
+            one_key = ballot.votes.select{|k, v| v == "1"}.keys.first
             puts "Added a vote for #{one_key}"
             @candidates.select{|s| s.id == one_key}.first.yes += 1
           end

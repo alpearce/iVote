@@ -10,6 +10,7 @@ gem 'pg'
 #gem 'sqlite3'
 gem 'thin'
 #gem 'debugger'
+gem 'thor'
 
 
 # Gems used only for assets and not required
