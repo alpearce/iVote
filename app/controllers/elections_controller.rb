@@ -1,5 +1,5 @@
 class ElectionsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :require_login
   
   def election
     @candidates = Candidate.all

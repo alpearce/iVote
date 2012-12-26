@@ -35,7 +35,6 @@
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -49,12 +48,14 @@
             <ul class="nav">
               <li><%= link_to "Voting", "/elections/election"  %></li>
               <li><%= link_to "Candidates", "/candidates"  %></li>
-			<% if user_signed_in?%>
-			<li class="pull-right"><a>Signed in as <%= current_user.email%></a></li><li class="pull-right"><%= link_to "Log Out", destroy_user_session_path, :method=> :delete %></li>
-			<%else%>
-			<li class="pull-right"><%= link_to "Log In", new_user_session_path %>
-			<li class="pull-right"><%= link_to "Sign Up", new_user_registration_path%></li>
-			<%end%>
+			<% if current_user %>
+			    <li><a href="#">Signed in as <%= current_user.name %></a></li>
+			    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+			  <% else %>
+			   <li> <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+			  <% end %>
+			
+			
 			
             </ul>
           </div><!--/.nav-collapse -->

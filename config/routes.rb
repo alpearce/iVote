@@ -31,6 +31,10 @@ IVote::Application.routes.draw do
   root :to => 'public#index'
   
   get 'admin/irv_tally'
+  
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
