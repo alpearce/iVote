@@ -14,7 +14,6 @@ IVote::Application.routes.draw do
   resources :candidates
 
   devise_for :users
-  resources :users
 
   get "public/index"
   
@@ -35,6 +34,19 @@ IVote::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  
+  match 'users/assign_proxy' => 'users#assign_proxy'
+  
+  post 'users/proxy_assign'
+  
+  as :user do
+    get "/proxy/login" => "devise/sessions#new"
+    delete "proxy/logout" => "devise/sessions#destroy"
+  end
+  
+  resources :users
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   protected
     def require_login
       if self.current_user == nil
-        
-        redirect_to "/"
+        redirect_to root_url
       end
     end
   

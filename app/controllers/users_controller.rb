@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
+  def assign_proxy
+    @proxy = @current_user.proxy_id
+    @proxy = User.find_by_id(@proxy)
+    @users = User.where(:proxy_id == nil)
+  end
+  
   def admin
     current_user.admin = true
     current_user.save
@@ -22,6 +28,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+  
+  def proxy_assign
+    logger.info "#{params}"
+    
   end
   
 end

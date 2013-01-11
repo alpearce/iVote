@@ -1,0 +1,12 @@
+<h2>Proxy Management Console</h2>
+
+<% if @proxy != nil%>
+<h3>Your Proxy: <%= @proxy.name %></h3><button class="btn btn-info">Remove Proxy</button>
+<% else%>
+<h3>You do not currently have a proxy.</h3>
+<%end%>
+<%= form_tag('/users/proxy_assign') do %>
+	<%= select_tag "users", options_from_collection_for_select(@users, "id", "email")%>
+	<%= submit_tag nil, :class => "btn btn-danger"%>
+		
+<%end%>
