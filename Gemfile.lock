@@ -168,6 +168,7 @@ DEPENDENCIES
   devise
   jquery-rails
   less-rails
+  libv8 (~> 3.11.8)
   meta_request (= 0.2.0)
   omniauth-facebook
   pg
