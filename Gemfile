@@ -33,7 +33,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'#, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
