@@ -47,14 +47,15 @@
           <div class="container nav-collapse">
             <ul class="nav">
 			<% if current_user %>
-              <li><%= link_to "Voting", "/elections/election"  %></li>
+              <li><%= link_to "Voting", "/voting/quickpick"  %></li>
+				<% if current_user.admin? %>
               <li><%= link_to "Candidates", "/candidates"  %></li>
-			
+				<% end %>
 			    <li><a href="#">Signed in as <%= current_user.name %></a></li>
 			    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 			  <% else %>
 			   <li> <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-			   <li> <%= link_to "Sign in as Proxy", "/proxy/login", id: "proxy_login"%> </li>
+			   <li> <%= #link_to "Sign in as Proxy", "/proxy/login", id: "proxy_login"%> </li>
 			  <% end %>
 			
 			
@@ -64,7 +65,7 @@
         </div>
       </div>
     </div>
-<%= debug current_user%>
+<%= #debug current_user%>
     <div class="container">
   
               <%= yield %>
