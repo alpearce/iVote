@@ -5,3 +5,9 @@
  *= require_self
  *= require_tree .
 */
+
+
+.container
+{
+	margin-top: 40px;
+}
