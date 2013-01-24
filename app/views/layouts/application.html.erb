@@ -45,16 +45,23 @@
           <a class="brand" href="/">iVote</a>
           <div class="nav-collapse">
             <ul class="nav">
-			<% if current_user %>
+			<% if current_user || current_proxy %>
               <li><%= link_to "Voting", "/voting/quickpick"  %></li>
-				<% if current_user.admin? %>
+				<% if current_user && current_user.admin? %>
               <li><%= link_to "Candidates", "/candidates"  %></li>
 				<% end %>
+				<%end%>
+			<% if current_user%>
 			    <li><a href="#">Signed in as <%= current_user.name %></a></li>
 			    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+				<% elsif current_proxy %>
+				<li><a href="#">Signed in as <%= current_proxy.email%></a></li>
+					<li><%= link_to "Sign out", destroy_proxy_session_path, id: "sign_out", method: "delete"%>
 			  <% else %>
 			   <li> <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+				<li> <%= link_to "Sign In With Email", "/proxies/sign_in", id: "sign_in"%>
 			  <% end %>
+			
 			
 			
 			
@@ -64,7 +71,11 @@
       </div>
     </div>
     <div class="container">
-	<%= debug current_user%>
+	<% if current_proxy%>
+	<div class="page-header">
+		<h1>This is a proxy vote<small>(Or otherwise you don't have facebook)</small></h1>
+	</div>
+	<% end%>
   
               <%= yield %>
 

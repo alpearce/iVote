@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   protected
     def require_login
       if self.current_user == nil
-        redirect_to root_url
+        unless current_proxy
+          redirect_to root_url
+        end
       end
     end
   

@@ -1,4 +1,6 @@
 IVote::Application.routes.draw do
+  devise_for :proxies
+
   get "users/index"
 
   get "voting/index"
@@ -38,11 +40,7 @@ IVote::Application.routes.draw do
   match 'users/assign_proxy' => 'users#assign_proxy'
   
   post 'users/proxy_assign'
-  
-  as :user do
-    get "/proxy/login" => "devise/sessions#new"
-    delete "proxy/logout" => "devise/sessions#destroy"
-  end
+
   
   resources :users
   
