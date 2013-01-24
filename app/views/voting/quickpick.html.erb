@@ -6,6 +6,7 @@
 					<input class="vote" type="hidden" value="NO" />
 					<% if candidate.picture.url != "/pictures/original/missing.png"%>
 					<%= image_tag(candidate.picture.url,  :class => "candidate_image")%>
+					<btn class="btn rotate_button"><i class="icon-repeat"></i></button>
 					<% else%>
 					<%= image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "140x140", :class => "candidate_image")%>
 					<%end%>

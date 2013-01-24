@@ -7,8 +7,13 @@
 
 <p>
   <b>Image url:</b>
-  <%= @candidate.image_url %>
+  <%= @candidate.photo.url%>
 </p>
+
+<p>
+	<b>Image:</b>
+	<%= image_tag(candidate.picture.url,  :class => "candidate_image")%>
+	</p>
 
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |

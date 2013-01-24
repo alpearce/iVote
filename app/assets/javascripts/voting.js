@@ -55,6 +55,13 @@ $(document).ready(function(){
 		$(this).closest(".candidate").removeClass("yes no abstain");
 		$(this).closest(".candidate").addClass("no");
 	});
+	
+	$(".rotate_button").click(function(eventOject){
+		var image = $(this).siblings(".candidate_image");
+		//image.rotate(90);
+		
+		
+	});
 
 	$("#submit_ballot").click(function(){
 		$("#submit_ballot").attr("disabled", "disabled")
