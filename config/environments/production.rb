@@ -65,9 +65,9 @@ IVote::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => "RushS2013",
+      :access_key_id => "AKIAJN5PUYKSDXWCGOWA",
+      :secret_access_key => "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"
     }
   }
 
