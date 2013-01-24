@@ -57,7 +57,7 @@ $(document).ready(function(){
 	});
 	
 	$(".rotate_button").click(function(eventOject){
-		var image = $(this).siblings(".candidate_image");
+		var image = $(this).parent().siblings(".candidate_image");
 		image.rotate((image.getRotateAngle()[0]) + 90);
 		
 		
