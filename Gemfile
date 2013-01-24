@@ -20,6 +20,7 @@ gem 'debugger'
 gem 'thor'
 gem 'cancan'
 
+gem 'aws-sdk'
 gem 'paperclip'
 
 
