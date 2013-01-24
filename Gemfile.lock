@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     cancan (1.6.8)
+    cocaine (0.4.2)
     columnize (0.3.6)
     commonjs (0.2.6)
     daemons (1.1.9)
@@ -95,6 +96,12 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
+    paperclip (3.4.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.3)
@@ -171,6 +178,7 @@ DEPENDENCIES
   libv8 (~> 3.11.8)
   meta_request (= 0.2.0)
   omniauth-facebook
+  paperclip
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
