@@ -9,8 +9,8 @@
 		<%abs_percent = candidate.abstain / @number_of_votes.to_f * 100.0 %>
 			<% if candidate.yes >= 38%>
 			<%= content_tag :div, :class => "span2 well yes result_block" do %>
-			<% if candidate.image_url != ""%>
-			<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
+			<% if candidate.picture.url != "/pictures/original/missing.png"%>
+			<%= image_tag(candidate.picture.url, :size=> "256x256", :class => "candidate_image")%>
 			<%end%>
 
 			<%=content_tag :p, {:class=> "name" } do %>
@@ -27,8 +27,8 @@
 			<%end%>
 			<% else %>
 			<%= content_tag :div, :class => "span2 well abstain result_block" do %>
-			<% if candidate.image_url != ""%>
-			<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
+			<% if candidate.picture.url != "/pictures/original/missing.png"%>
+			<%= image_tag(candidate.picture.url, :size=> "256x256", :class => "candidate_image")%>
 			<%else%>			<%=image_tag("http://www.thisblogrules.com/wp-content/uploads/2010/02/batman-for-facebook.jpg", :size => "140x140", :class => "candidate_image")%>
 			<%end%>
 			
