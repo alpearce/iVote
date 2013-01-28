@@ -20,4 +20,8 @@
 		</div>
 
 <button class="pull-right btn btn-danger" id="submit_ballot">Submit</button>
+<%if current_user %>
 <%=hidden_field_tag 'user_id', current_user.id%>
+<% elsif current_proxy%>
+<%=hidden_field_tag 'user_id', current_proxy.id%>
+<%end%>
