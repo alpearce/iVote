@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_login
   def index
     @users = User.all
+    @proxies = Proxy.all
   end
   
   def assign_proxy
