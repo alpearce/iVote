@@ -41,7 +41,7 @@ IVote::Application.routes.draw do
   
   post 'users/proxy_assign'
 
-  
+  resources :proxies
   resources :users
   
 
