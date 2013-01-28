@@ -46,7 +46,7 @@
           <div class="nav-collapse">
             <ul class="nav">
 			<% if current_user || current_proxy %>
-              <li><%= link_to "Voting", "/voting/quickpick"  %></li>
+              <li><%= link_to "Voting", "/voting/index"  %></li>
 				<% if current_user && current_user.admin? %>
               <li><%= link_to "Candidates", "/candidates"  %></li>
 				<% end %>

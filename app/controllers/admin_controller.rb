@@ -21,15 +21,16 @@ class AdminController < ApplicationController
     @ballots.each do |ballot|
       ballot.votes.each {|candidate_id, vote|
         candidate = @candidates.select{|s| s.id == candidate_id.to_i}.first
+        unless candidate == nil
         #candidate = Candidate.find(candidate_id.to_i)
-        if vote == "0"
-          candidate.yes += 1
-        elsif vote == "1"
-          candidate.abstain += 1
-        elsif vote == "2"
-          candidate.no += 1
+          if vote == "0"
+            candidate.yes += 1
+          elsif vote == "1"
+            candidate.abstain += 1
+          elsif vote == "2"
+            candidate.no += 1
+          end
         end
-        
         #candidate.save
         }
           
