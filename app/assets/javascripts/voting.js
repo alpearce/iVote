@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	
 	var YES = $(".remaining").attr("data-remaining");
+	var ABS = $(".abstain-remaining").attr("data-remaining");
 	var MAX = YES;
+	var AMAX = ABS;
 	var ballot = {};
 	$(".btn-group").button();
 	$(".btn-success").click(function(e){
@@ -14,6 +16,11 @@ $(document).ready(function(){
 		if(YES >= 0)
 		{
 		$(".remaining").html(YES + " YES votes remain.");
+		}
+		if (form.attr('value') == 1)
+		{
+			ABS += 1;
+			$(".abstain-remaining").html(ABS + " ABS votes remain");
 		}
 	}
 	if (YES >= 0)
@@ -37,7 +44,25 @@ $(document).ready(function(){
 		
 		YES += 1;
 		$(".remaining").html(YES + " YES votes remain.");
-	}	
+		}
+	
+		if (form.attr('value') == 1)
+		{
+			ABS -= 1;
+			$(".abstain-remaining").html(ABS + " ABS votes remain";)
+		}
+		if (ABS >= 0)
+		{
+		$(this).closest(".candidate").removeClass("yes no abstain");
+		$(this).closest(".candidate").addClass("abstain");
+		form.attr("value", 0);
+		}
+		else
+		{
+			alert("Sorry, you cannot have more than " + MAX + " votes.")
+			ABS = 0;
+		}
+		
 	form.attr("value", 1);
 	$(this).closest(".candidate").removeClass("yes no abstain");
 	$(this).closest(".candidate").addClass("abstain");
@@ -50,6 +75,11 @@ $(document).ready(function(){
 			
 			YES += 1;
 			$(".remaining").html(YES + " YES votes remain.");
+		}
+		else if (form.attr("value") == 1)
+		{
+			ABS += 1;
+			$(".abstain-remaining").html(ABS + " ABS votes remain.");
 		}
 		form.attr("value", 2);
 		$(this).closest(".candidate").removeClass("yes no abstain");
