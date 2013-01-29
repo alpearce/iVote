@@ -18,6 +18,8 @@ class VotingController < ApplicationController
     yes_validation = ballot.select{|k, v|
       v == "0"
       }
+    abstain_validaton = ballot.select{|k, v|
+      v == "1"}
       if yes_validation.size > 15
         respond_to do |format|
           format.html {render :text => "You may not have more than 15 YES votes. You had" + yes_validation.size.to_s, :status => 406}
@@ -25,6 +27,13 @@ class VotingController < ApplicationController
         end
         return
       end
+    if abstain_validation.size > 35
+      respond_to do |format|
+        format.html {render :text => "You abstained too many times", :status => 406}
+        format.json {render :text => "You abstained too many times", :status => 403}
+      end
+      return
+    end
     user = params[:user_id]
     @voted_already = UserVoted.find_by_user_id(user.to_i)
     if @voted_already.nil?

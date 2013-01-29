@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Max yes:</b>
+  <%= @setting.max_yes %>
+</p>
+
+<p>
+  <b>Max abs:</b>
+  <%= @setting.max_abs %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

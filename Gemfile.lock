@@ -59,6 +59,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    figaro (0.5.0)
+      rails (~> 3.0)
     hashie (1.2.0)
     hike (1.2.1)
     httparty (0.10.0)
@@ -185,6 +187,7 @@ DEPENDENCIES
   cancan
   debugger
   devise
+  figaro
   jquery-rails
   less-rails
   libv8 (~> 3.11.8)
