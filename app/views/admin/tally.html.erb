@@ -50,7 +50,7 @@
 			<%end%>
 			
 			<%=content_tag :p, {:class=> "name"} do %><%= candidate.name%>
-			<div class="result_container"><p class="results"><%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%-</p><%end%>
+			<div class="result_container"><p class="results"><%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%></p><%end%>
 				<div class="progress">
 					<div class="bar bar-success" style=<%="width:#{yes_percent}%;"    %>></div>
 						<div class="bar bar-info" style=<%="width:#{abs_percent}%;"%>></div>
