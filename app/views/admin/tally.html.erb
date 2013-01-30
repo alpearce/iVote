@@ -7,7 +7,7 @@
 		<%yes_percent = candidate.yes / @number_of_votes.to_f * 100.0 %>
 		<%no_percent = candidate.no / @number_of_votes.to_f * 100.0 %>
 		<%abs_percent = candidate.abstain / @number_of_votes.to_f * 100.0 %>
-			<% if candidate.yes >= 38%>
+			<% if candidate.yes >= 50%>
 			<%= content_tag :div, :class => "span2 well yes result_block" do %>
 			<% if candidate.picture.url != "/pictures/original/missing.png"%>
 			<%= image_tag(candidate.picture.url, :size=> "256x256", :class => "candidate_image")%>
@@ -25,7 +25,7 @@
 				
 				</div>
 			<%end%>
-			<% else %>
+			<% elsif candidate.no <= 9 %>
 			<%= content_tag :div, :class => "span2 well abstain result_block" do %>
 			<% if candidate.picture.url != "/pictures/original/missing.png"%>
 			<%= image_tag(candidate.picture.url, :size=> "256x256", :class => "candidate_image")%>
@@ -43,14 +43,14 @@
 				
 			</div>
 			<%end%>
-			<!--%else %>
+			<%else %>
 			<%= content_tag :div, :class => "span2 well no" do %>
 			<% if candidate.image_url != ""%>
 			<%= image_tag(candidate.image_url, :size=> "256x256", :class => "candidate_image")%>
 			<%end%>
 			
 			<%=content_tag :p, {:class=> "name"} do %><%= candidate.name%>
-			<div class="result_container"><p class="results"><!--%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%-</p><%end%>
+			<div class="result_container"><p class="results"><%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%-</p><%end%>
 				<div class="progress">
 					<div class="bar bar-success" style=<%="width:#{yes_percent}%;"    %>></div>
 						<div class="bar bar-info" style=<%="width:#{abs_percent}%;"%>></div>
@@ -59,7 +59,6 @@
 				
 			</div>
 			<%end%>
-			<i-->
 			<%end%>
 			<%end%>
 			</div>
