@@ -1,7 +1,6 @@
 IVote::Application.routes.draw do
   resources :settings
-
-
+  
   devise_for :proxies
 
   get "users/index"
@@ -44,7 +43,7 @@ IVote::Application.routes.draw do
   
   post 'users/proxy_assign'
 
-  resources :proxies
+
   resources :users
   
 
