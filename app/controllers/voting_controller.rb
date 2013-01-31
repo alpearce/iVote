@@ -26,7 +26,7 @@ class VotingController < ApplicationController
         end
         return
       end
-      if abstains.size > 35
+      if abstains.size > 12
         respond_to do |format|
           format.html {render :text => "You abstained too many times", :status => 406}
           format.json {render :text => "You abstained too many times", :status => 403}
