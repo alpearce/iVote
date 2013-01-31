@@ -12,7 +12,6 @@ class VotingController < ApplicationController
   end
 
   def vote
-   
     @candidates = Candidate.all
     ballot = params[:ballot]
     yes_validation = ballot.select{|k, v|
@@ -20,7 +19,7 @@ class VotingController < ApplicationController
       }
     abstain_validaton = ballot.select{|k, v|
       v == "1"}
-      if yes_validation.size > 15
+      if yes_validation.size > 14
         respond_to do |format|
           format.html {render :text => "You may not have more than 15 YES votes. You had" + yes_validation.size.to_s, :status => 406}
           format.json {render :text => "You may not have more than 15 YES votes.", :status => 403}
