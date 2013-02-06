@@ -94,6 +94,7 @@ class VotingController < ApplicationController
         logger.info "USER ALREADY VOTED"
       end
 
+
     end
 
   def confirm
