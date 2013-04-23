@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124164727) do
+ActiveRecord::Schema.define(:version => 20130129202707) do
 
   create_table "ballots", :force => true do |t|
     t.text     "votes"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20130124164727) do
 
   add_index "proxies", ["email"], :name => "index_proxies_on_email", :unique => true
   add_index "proxies", ["reset_password_token"], :name => "index_proxies_on_reset_password_token", :unique => true
+
+  create_table "settings", :force => true do |t|
+    t.integer  "max_yes"
+    t.integer  "max_abs"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "user_voteds", :force => true do |t|
     t.integer  "user_id"

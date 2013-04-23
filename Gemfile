@@ -12,6 +12,10 @@ group :development do
   gem 'meta_request', '0.2.0'
 end
 
+group :development, :test do
+	gem 'rspec-rails'
+end
+
 group :production do
   gem 'pg'
 end

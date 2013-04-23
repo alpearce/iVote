@@ -1,4 +1,7 @@
 IVote::Application.routes.draw do
+  resources :votes
+
+
   resources :settings
   
   devise_for :proxies
