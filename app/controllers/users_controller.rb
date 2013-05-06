@@ -15,9 +15,15 @@ class UsersController < ApplicationController
   def admin
    @user = User.find_by_id(params[:id])
    @user.admin = true
-   @user.save
-    
-  redirect_to "/users"
+   @user.save    
+   redirect_to "/users", notice: "Superpowers granted"
+  end
+
+   def unadmin
+   @user = User.find_by_id(params[:id])
+   @user.admin = false
+   @user.save    
+   redirect_to "/users", notice: "Superpowers revoked"
   end
     
 

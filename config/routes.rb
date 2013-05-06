@@ -46,9 +46,8 @@ IVote::Application.routes.draw do
   
   post 'users/proxy_assign'
 
-  #post 'users/admin'
   post 'users/:id/admin', to: 'users#admin'
-
+  post 'users/:id/unadmin', to: 'users#unadmin'
 
   resources :users
   

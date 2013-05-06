@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">iVote</a>
+          <a class="brand" href="/">vOTe</a>
           <div class="nav-collapse">
             <ul class="nav">
 			<% if current_user || current_proxy %>
@@ -54,9 +54,11 @@
         <% end %>
 				<%end%>
 			<% if current_user%>
-			    <li><a href="#">Signed in as <%= current_user.name %></a></li>
-			    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-				<% elsif current_proxy %>
+			    <!--<li><a href="#">Signed in as <%= current_user.name %></a></li> -->
+			    <li><%= link_to "Sign out (#{current_user.name})", signout_path, id: "sign_out" %></li>
+				
+
+        <% elsif current_proxy %>
 				<li><a href="#">Signed in as <%= current_proxy.email%></a></li>
 					<li><%= link_to "Sign out", destroy_proxy_session_path, id: "sign_out", method: "delete"%>
 			  <% else %>

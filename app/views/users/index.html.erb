@@ -1,12 +1,27 @@
+<head>
+	<style type="text/css" media="all">
+	
+	td, th {
+		padding: 0.1em 1em;
+	}
+	
+	</style>
+</head>
+
 <h2>Listing current users</h2>
+
+
 <table>
-	<tr><th>Email</th><th>Delete</th></tr>
+	<tr><th>Email</th><th>Delete</th><th>Superpowers</th></tr>
 	<%@users.each do |user|%>
 	<tr><td><%=user.name%></td>
 		<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		<td><%= link_to 'Make Admin', "#{user.id}/admin", method: :post, data: { confirm: 'Are you sure?' } %></td>
-	<% if user.admin? %>
-              <td>ADMIN</td>     
+
+		<% if !user.admin? %>
+          <td><%= link_to 'Make Admin', "users/#{user.id}/admin", method: :post, data: { confirm: 'Are you sure?' } %></td>     
+        <% end %>		
+		<% if user.admin? %>
+             <td><%= link_to 'Un-Admin', "users/#{user.id}/unadmin", method: :post, data: { confirm: 'Are you sure?' } %></td>        
         <% end %>
 		</tr>
 	<%end%>
