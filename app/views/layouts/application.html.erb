@@ -48,8 +48,10 @@
 			<% if current_user || current_proxy %>
               <li><%= link_to "Voting", "/voting/index"  %></li>
 				<% if current_user && current_user.admin? %>
-              <li><%= link_to "Candidates", "/candidates"  %></li>
-				<% end %>
+              <li><%= link_to "Edit Candidates", "/candidates"  %></li>
+				      <li><%= link_to "Tally", "/admin/tally"  %></li>
+              
+        <% end %>
 				<%end%>
 			<% if current_user%>
 			    <li><a href="#">Signed in as <%= current_user.name %></a></li>
@@ -84,7 +86,7 @@
   
 
       <footer>
-        <p>&copy; Scottie Biddle on behalf of Tau Gamma Chapter of Theta Tau Professional Engineering Fraternity 2012</p>
+        <p>&copy; Scottie Biddle, Allison Pearce, and Lily Wang on behalf of Tau Gamma Chapter of Theta Tau Professional Engineering Fraternity 2013</p>
       </footer>
 
     </div> <!-- /container -->
