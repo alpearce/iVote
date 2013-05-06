@@ -13,9 +13,11 @@ class UsersController < ApplicationController
   
 
   def admin
-   current_user.admin = true
-   current_user.save
-   redirect_to "/users"
+   @user = User.find_by_id(params[:id])
+   @user.admin = true
+   @user.save
+    
+  redirect_to "/users"
   end
     
 

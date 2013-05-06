@@ -4,7 +4,7 @@
 	<%@users.each do |user|%>
 	<tr><td><%=user.name%></td>
 		<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		<td><%= link_to 'Make Admin', users_admin_path(@user), method: :post, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to 'Make Admin', "#{user.id}/admin", method: :post, data: { confirm: 'Are you sure?' } %></td>
 	<% if user.admin? %>
               <td>ADMIN</td>     
         <% end %>
