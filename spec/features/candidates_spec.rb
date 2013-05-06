@@ -6,7 +6,7 @@ describe "Listing Candidates" do
 
     visit candidates_path
     page.has_content? "Listing Candidates"
-    click_link "New Candidate"
+    click_link 'New Candidate'
     fill_in "Name", with: "Lily"
     click_button "Create Candidate"
     page.has_content? "Candidate was successfully created."

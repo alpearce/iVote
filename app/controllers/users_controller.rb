@@ -11,12 +11,14 @@ class UsersController < ApplicationController
     @users = User.where(:proxy_id == nil)
   end
   
+
   def admin
-    current_user.admin = true
-    current_user.save
-    redirect_to "/users"
+   current_user.admin = true
+   current_user.save
+   redirect_to "/users"
   end
-  
+    
+
   def show
     redirect_to "/users"
   end
