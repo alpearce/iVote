@@ -117,28 +117,28 @@ class AdminController < ApplicationController
       end
   end
   
-  def advance
-    @vote_count = UserVoted.all.count
-    @candidates = Candidate.all
-    @candidates.each do |candidate|
-      if candidate.yes >= 50 || candidate.no >= 9 * @vote_count
-        candidate.delete
-      else
-        candidate.yes = 0
-        candidate.no = 0
-        candidate.abstain = 0
-        candidate.save
-      end
-      
-    end
-    UserVoted.all.each do |uv|
-      uv.delete
-    end
-    Ballot.all.each do |ballot|
-      ballot.delete
-    end
-    redirect_to "/candidates/index"
-  end
+  #def advance
+   # @vote_count = UserVoted.all.count
+    #@candidates = Candidate.all
+    #@candidates.each do |candidate|
+     # if candidate.yes >= 50 || candidate.no >= 9 * @vote_count
+      #  candidate.delete
+      #else
+       # candidate.yes = 0
+        #candidate.no = 0
+        #candidate.abstain = 0
+        #candidate.save
+      #end
+
+    #end
+    #UserVoted.all.each do |uv|
+     # uv.delete
+    #end
+   # Ballot.all.each do |ballot|
+    #  ballot.delete
+    #end
+    #redirect_to "/candidates/index"
+  #end
   
   
   def wipe

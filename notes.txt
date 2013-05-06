@@ -12,5 +12,3 @@ Things we want to do:
 Things we have to do:
 - thin out the controllers (separation of concerns)
 - make sure routes are "proper" (whatever that means)
-- add some specs
-	minimum one feature spec and one model spec
