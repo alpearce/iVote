@@ -1,9 +1,11 @@
 Things we want to do:
 - Make separate sections for delibs, elections, bylaws
+
 - Adding/editing candidates should be admin-only
 	also clean it the fuck up
 - get rid of "advance voting"
 - ASK FOR CONFIRMATION AFTER WIPE VOTES
+
 - generally make it less ugly/bootstrappy (add OT colors?)
 - test out the voting page w/ lots of pics and see what sucks
 
