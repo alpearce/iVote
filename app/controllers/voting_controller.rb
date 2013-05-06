@@ -16,8 +16,8 @@ class VotingController < ApplicationController
     ballot = params[:ballot]
     if ballot.nil?  
           respond_to do |format|
-          format.html {render :text => "Add some candidates!", :status => 406}
-          format.json {render :text => "Add some candidates!", :status => 403}
+          format.html {render :text => "You can't vote until you add some candidates!", :status => 406}
+          format.json {render :text => "You can't vote until you add some candidates!", :status => 403}
         end
         return
       end

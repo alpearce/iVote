@@ -20,7 +20,12 @@
 				<%end%>
 		</div>
 
+<%if @candidates.size > 0 %>
 <button class="pull-right btn btn-danger" id="submit_ballot">Submit</button>
+<%else %>
+<button class="pull-right btn btn-danger disabled" id="submit_ballot">You should add some candidates!</button>
+<%end%>
+
 <%if current_user %>
 <%=hidden_field_tag 'user_id', current_user.id%>
 <% elsif current_proxy%>
