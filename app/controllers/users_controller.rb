@@ -15,8 +15,9 @@ class UsersController < ApplicationController
   def admin
    @user = User.find_by_id(params[:id])
    @user.admin = true
-   @user.save    
-   redirect_to "/users", notice: "Superpowers granted"
+   @user.save   
+   flash[:notice] = "Superpowers granted" 
+   redirect_to "/users"
   end
 
    def unadmin

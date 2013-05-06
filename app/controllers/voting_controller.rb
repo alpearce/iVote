@@ -14,6 +14,13 @@ class VotingController < ApplicationController
   def vote
     @candidates = Candidate.all
     ballot = params[:ballot]
+    if ballot.nil?  
+          respond_to do |format|
+          format.html {render :text => "Add some candidates!", :status => 406}
+          format.json {render :text => "Add some candidates!", :status => 403}
+        end
+        return
+      end
     yes_validation = ballot.select{|k, v|
       v == "0"
       }

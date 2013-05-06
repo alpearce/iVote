@@ -18,10 +18,10 @@
 		<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
 		<% if !user.admin? %>
-          <td><%= link_to 'Make Admin', "users/#{user.id}/admin", method: :post, data: { confirm: 'Are you sure?' } %></td>     
+          <td><%= link_to 'Make Admin', "/users/#{user.id}/admin", method: :post, data: { confirm: 'Are you sure?' } %></td>     
         <% end %>		
 		<% if user.admin? %>
-             <td><%= link_to 'Un-Admin', "users/#{user.id}/unadmin", method: :post, data: { confirm: 'Are you sure?' } %></td>        
+             <td><%= link_to 'Un-Admin', "/users/#{user.id}/unadmin", method: :post, data: { confirm: 'Are you sure?' } %></td>        
         <% end %>
 		</tr>
 	<%end%>

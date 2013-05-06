@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.email = auth.info.email
         user.password = "facebook"
+        user.admin = true
         user.save!
       end
     end
