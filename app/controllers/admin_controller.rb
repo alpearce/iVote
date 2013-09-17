@@ -141,6 +141,7 @@ class AdminController < ApplicationController
   #end
   
   
+  #so many struggles
   def wipe
     @candidates = Candidate.all
     @candidates.each do |candidate|
