@@ -64,6 +64,6 @@ module IVote
         g.view_specs false
         g.helper_specs false
     end
-    
+    config.logger = Logger.new(STDOUT)
   end
 end
