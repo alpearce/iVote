@@ -34,6 +34,11 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
+    better_errors (1.0.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     cancan (1.6.9)
     capybara (2.1.0)
@@ -46,9 +51,11 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     columnize (0.3.6)
     commonjs (0.2.6)
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     debugger (1.5.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -121,6 +128,8 @@ GEM
       mime-types
     pg (0.15.1)
     polyglot (0.3.3)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -202,6 +211,8 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  better_errors
+  binding_of_caller
   cancan
   capybara
   debugger
@@ -214,6 +225,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip
   pg
+  quiet_assets
   rails (= 3.2.11)
   rspec-rails
   sass-rails (~> 3.2.3)
