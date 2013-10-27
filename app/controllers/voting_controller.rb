@@ -55,7 +55,9 @@ class VotingController < ApplicationController
       respond_to do |format|
         format.html {render :text => "Sorry. You already voted.", :status => 403}
         format.json {render :text => "Sorry. You already voted.", :status => 403}
+
       end
+      puts UserVoted.all
       
       logger.info "USER ALREADY VOTED"
     end
