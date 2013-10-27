@@ -21,6 +21,9 @@
 		</div>
 
 <%if @candidates.size > 0 %>
+<% puts "did you already vote?" %>
+<% puts current_user.name %>
+<% puts current_user.voted_already %>
 <button class="pull-right btn btn-danger" id="submit_ballot">Submit</button>
 <%else %>
 <button class="pull-right btn btn-danger disabled" id="submit_ballot">You should add some candidates!</button>

@@ -57,6 +57,7 @@ class VotingController < ApplicationController
         format.json {render :text => "Sorry. You already voted.", :status => 403}
 
       end
+      puts "In the controller voting_controller: vote action"
       puts UserVoted.all
       
       logger.info "USER ALREADY VOTED"
