@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "vOTe" %></title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "vOTe" %></title>
+  <%= csrf_meta_tags %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
+      <![endif]-->
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= stylesheet_link_tag "application", :media => "all" %>
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
+      <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels >
     <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
@@ -37,55 +37,50 @@
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">vOTe</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-			<% if current_user || current_proxy %>
+        <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">vOTe</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+           <% if current_user || current_proxy %>
               <li><%= link_to "Voting", "/voting/index"  %></li>
-				<% if current_user && current_user.admin? %>
+            <% if current_user && current_user.admin? %>
               <li><%= link_to "Edit Candidates", "/candidates"  %></li>
-				      <li><%= link_to "Tally", "/admin/tally"  %></li> 
+              <li><%= link_to "Tally", "/admin/tally"  %></li> 
               <li><%= link_to "Users", "/users/index"  %></li>          
-        <% end %>
-				<%end%>
-			<% if current_user%>
-			    <!--<li><a href="#">Signed in as <%= current_user.name %></a></li> -->
-			    <li><%= link_to "Sign out (#{current_user.name})", signout_path, id: "sign_out" %></li>
-				
+            <% end %>
+           <%end%>
+           <!-- currently signed in -->
+           <% if current_user%>
+           <li><%= link_to "Sign out (#{current_user.name})", signout_path, id: "sign_out" %></li>
+          <!-- need to sign in -->
+          <% else %>
+             <li> <%= link_to "Sign In With Email", "/proxies/sign_in", id: "sign_in"%>
+          <% end %>
 
-        <% elsif current_proxy %>
-				<li><a href="#">Signed in as <%= current_proxy.email%></a></li>
-					<li><%= link_to "Sign out", destroy_proxy_session_path, id: "sign_out", method: "delete"%>
-			  <% else %>
-			   <li> <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-				<li> <%= link_to "Sign In With Email", "/proxies/sign_in", id: "sign_in"%>
-			  <% end %>
-			
-			
-			
-			
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+
+
+
+             </ul>
+           </div><!--/.nav-collapse -->
+         </div>
+       </div>
+     </div>
+     <div class="container">
+       <% if current_proxy%>
+       <div class="page-header">
+        <h1>This is a proxy vote<small>(Or otherwise you don't have facebook)</small></h1>
       </div>
-    </div>
-    <div class="container">
-	<% if current_proxy%>
-	<div class="page-header">
-		<h1>This is a proxy vote<small>(Or otherwise you don't have facebook)</small></h1>
-	</div>
-	<% end%>
-  
-              <%= yield %>
+      <% end%>
 
-            
-    
-  
+      <%= yield %>
+
+
+
+
 
       <footer>
         <p>&copy; Scottie Biddle, Allison Pearce, Lily Wang, and Sean Reidy on behalf of Tau Gamma Chapter of Theta Tau Professional Engineering Fraternity 2013</p>
@@ -99,4 +94,4 @@
     <%= javascript_include_tag "application" %>
 
   </body>
-</html>
+  </html>
