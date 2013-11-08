@@ -1,4 +1,4 @@
-class UsersNewController < ApplicationController
+class UserNewController < ApplicationController
   before_filter :require_login
   
 
@@ -11,11 +11,11 @@ class UsersNewController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Usersnew.all
+    @candidates = Usernew.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @usersnew }
+      format.json { render json: @usernew }
     end
   end
 
@@ -76,7 +76,7 @@ class UsersNewController < ApplicationController
   end
 
   def index
-    @usersnew = Usernew.all
+    @usernew = Usernew.all
   end
 
   def admin
@@ -84,14 +84,14 @@ class UsersNewController < ApplicationController
    @usernew.admin = true
    @usernew.save   
    flash[:notice] = "Superpowers granted" 
-   redirect_to "/users"
+   redirect_to root_path
   end
 
   def unadmin
    @usernew = Usernew.find_by_id(params[:id])
    @usernew.admin = false
    @usernew.save    
-   redirect_to "/users", notice: "Superpowers revoked"
+   redirect_to root_path, notice: "Superpowers revoked"
   end
 
   # DELETE /candidates/1
