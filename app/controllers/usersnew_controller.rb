@@ -22,11 +22,11 @@ class UsersNewController < ApplicationController
   # GET /candidates/1
   # GET /candidates/1.json
   def show
-    @candidate = Candidate.find(params[:id])
+    @usernew = Usernew.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @candidate }
+      format.json { render json: @usernew }
     end
   end
 
@@ -51,7 +51,7 @@ class UsersNewController < ApplicationController
     respond_to do |format|
       if @usernew.save
         format.html { redirect_to @usernew, notice: 'User was successfully created.' }
-        format.json { render json: @usernew, status: :created, location: @candidate }
+        format.json { render json: @usernew, status: :created, location: @usernew }
       else
         format.html { render action: "new" }
         format.json { render json: @usernew.errors, status: :unprocessable_entity }

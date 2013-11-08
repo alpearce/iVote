@@ -1,10 +1,10 @@
-<%= form_for @candidate, :html => {:multipart => true} do |f| %>
-  <% if @candidate.errors.any? %>
+<%= form_for @usernew, :html => {:multipart => true} do |f| %>
+  <% if @usernew.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+      <h2><%= pluralize(@usernew.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @candidate.errors.full_messages.each do |msg| %>
+      <% @usernew.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div class="field">
   <!--div class="field">
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
   </div-->
 	<div class="field">
-	<%= f.label :picture %>
-	<%= f.file_field :picture%>
+	<%= f.label :password_confirmation %>
+	<%= f.file_field :password_confirmation%>
 </div>
   <div class="actions">
     <%= f.submit %>
