@@ -1,5 +1,5 @@
-class UsersnewController < ApplicationController
 
+class UserNewController < ApplicationController
 
    def require_admin
      unless current_user.admin?
@@ -10,11 +10,11 @@ class UsersnewController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Usersnew.all
+    @candidates = Usernew.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @usersnew }
+      format.json { render json: @usernew }
     end
   end
 
@@ -75,7 +75,11 @@ class UsersnewController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD:app/controllers/usersnew_controller.rb
     @usersnew = Usersnew.all
+=======
+    @usernew = Usernew.all
+>>>>>>> dabd20050850c20f1bb7b5c3a79392eee3fd6472:app/controllers/usernew_controller.rb
   end
 
   def admin
@@ -83,14 +87,14 @@ class UsersnewController < ApplicationController
    @usernew.admin = true
    @usernew.save   
    flash[:notice] = "Superpowers granted" 
-   redirect_to "/users"
+   redirect_to root_path
   end
 
   def unadmin
    @usernew = Usersnew.find_by_id(params[:id])
    @usernew.admin = false
    @usernew.save    
-   redirect_to "/users", notice: "Superpowers revoked"
+   redirect_to root_path, notice: "Superpowers revoked"
   end
 
   # DELETE /candidates/1
