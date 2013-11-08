@@ -1,6 +1,5 @@
-class UsersNewController < ApplicationController
-  before_filter :require_login
-  
+class UsersnewController < ApplicationController
+
 
    def require_admin
      unless current_user.admin?
@@ -22,7 +21,7 @@ class UsersNewController < ApplicationController
   # GET /candidates/1
   # GET /candidates/1.json
   def show
-    @usernew = Usernew.find(params[:id])
+    @usernew = Usersnew.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,7 +32,7 @@ class UsersNewController < ApplicationController
   # GET /candidates/new
   # GET /candidates/new.json
   def new
-    @usernew = Usernew.new
+    @usernew = Usersnew.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +45,7 @@ class UsersNewController < ApplicationController
   # POST /candidates
   # POST /candidates.json
   def create
-    @usernew = Usernew.new(params[:usernew])
+    @usernew = Usersnew.new(params[:usernew])
     usernew.admin = false;
     respond_to do |format|
       if @usernew.save
@@ -62,7 +61,7 @@ class UsersNewController < ApplicationController
   # PUT /candidates/1
   # PUT /candidates/1.json
   def update
-    @candidate = Usernew.find(params[:id])
+    @candidate = Usersnew.find(params[:id])
 
     respond_to do |format|
       if @candidate.update_attributes(params[:usernew])
@@ -76,11 +75,11 @@ class UsersNewController < ApplicationController
   end
 
   def index
-    @usersnew = Usernew.all
+    @usersnew = Usersnew.all
   end
 
   def admin
-   @usernew = Usernew.find_by_id(params[:id])
+   @usernew = Usersnew.find_by_id(params[:id])
    @usernew.admin = true
    @usernew.save   
    flash[:notice] = "Superpowers granted" 
@@ -88,7 +87,7 @@ class UsersNewController < ApplicationController
   end
 
   def unadmin
-   @usernew = Usernew.find_by_id(params[:id])
+   @usernew = Usersnew.find_by_id(params[:id])
    @usernew.admin = false
    @usernew.save    
    redirect_to "/users", notice: "Superpowers revoked"
@@ -97,7 +96,7 @@ class UsersNewController < ApplicationController
   # DELETE /candidates/1
   # DELETE /candidates/1.json
   def destroy
-    @usernew = Usernew.find(params[:id])
+    @usernew = Usersnew.find(params[:id])
     @usernew.destroy
 
     respond_to do |format|

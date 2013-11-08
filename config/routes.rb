@@ -1,6 +1,6 @@
 IVote::Application.routes.draw do
   resources :votes
-  resources :usernew
+  resources :usersnew
 
   resources :settings
   

@@ -58,7 +58,7 @@
            <li><%= link_to "Sign out (#{current_user.name})", signout_path, id: "sign_out" %></li>
           <!-- need to sign in -->
           <% else %>
-             <li> <%= link_to "Sign In With Email", "/proxies/sign_in", id: "sign_in"%>
+             <li> <%= link_to "Sign In With Email", "/usersnew/new", id: "sign_in"%>
           <% end %>
 
 
