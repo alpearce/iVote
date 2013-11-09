@@ -22,11 +22,7 @@
 
 <%if @candidates.size > 0 %>
 <% puts "did you already vote?" %>
-<% if !current_user.nil? %>
-	<% puts current_user.name %>
-	<% puts current_user.voted_already.nil? %>
-<% elsif %>
-	<% puts current_proxy.name %>
+<% if !current_proxy.nil? %>
 	<% puts current_proxy.voted_already.nil? %>
 <% end %>
 
@@ -35,8 +31,6 @@
 <button class="pull-right btn btn-danger disabled" id="submit_ballot">You should add some candidates!</button>
 <%end%>
 
-<%if current_user %>
-<%=hidden_field_tag 'user_id', current_user.id%>
-<% elsif current_proxy%>
+<%if current_proxy %>
 <%=hidden_field_tag 'user_id', current_proxy.id%>
 <%end%>

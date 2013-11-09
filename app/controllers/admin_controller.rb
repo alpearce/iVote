@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_filter :require_login
-  before_filter :require_admin
+  #before_filter :require_admin
   
   def require_admin
     unless current_user.admin?
