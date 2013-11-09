@@ -42,7 +42,7 @@ class VotingController < ApplicationController
       end
     user = params[:user_id]
     @voted_already = UserVoted.find_by_user_id(user.to_i)
-    if @voted_already.nil?
+    if @voted_already.nil? || @voted_already.voted == false
       ballotVote = Ballot.new
       ballotVote.votes = params[:ballot]
       ballotVote.save
