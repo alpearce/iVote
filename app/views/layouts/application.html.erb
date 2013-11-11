@@ -33,10 +33,11 @@
           <ul class="nav">
            <% if current_proxy %>
               <li><%= link_to "Voting", "/voting/index"  %></li>
-      
-              <li><%= link_to "Edit Candidates", "/candidates"  %></li>
-              <li><%= link_to "Tally", "/admin/tally"  %></li> 
-              <li><%= link_to "Users", "/users/index"  %></li>          
+                <% if current_proxy.email == "lily@gmail.com" || current_proxy.email == "sean@gmail.com" %>
+                  <li><%= link_to "Edit Candidates", "/candidates"  %></li>
+                  <li><%= link_to "Tally", "/admin/tally"  %></li> 
+                  <li><%= link_to "Users", "/users/index"  %></li>
+                  <% end %>          
         
            <%end%>
            <!-- currently signed in -->
