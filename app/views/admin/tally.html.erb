@@ -49,9 +49,6 @@
 			<%else %>
 			<%= content_tag :div, :class => "span2 well no" do %>
 			<% puts " STUFF STUFF STUFF STUFF " %>
-			<%# if candidate.image_url != ""%>
-			<%=# image_tag(candidate.image_url, :size=> "256x256")%>
-			<%#end%>
 			
 			<%=content_tag :p, {:class=> "name"} do %><%= candidate.name%>
 			<div class="result_container"><p class="results"><%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%></p><%end%>
