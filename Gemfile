@@ -31,7 +31,7 @@ group :production do
   gem 'pg'
 end
 gem 'thin'
-gem 'debugger'
+#gem 'debugger'
 gem 'thor'
 gem 'cancan'
 

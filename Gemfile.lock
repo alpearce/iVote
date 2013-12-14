@@ -53,16 +53,9 @@ GEM
     cocaine (0.5.3)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
-    columnize (0.3.6)
     commonjs (0.2.7)
     daemons (1.1.9)
     debug_inspector (0.0.2)
-    debugger (1.6.3)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.4)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.4)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -220,7 +213,6 @@ DEPENDENCIES
   binding_of_caller
   cancan
   capybara
-  debugger
   devise
   figaro
   jquery-rails
