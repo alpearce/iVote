@@ -35,7 +35,6 @@ gem 'thin'
 #gem 'debugger'
 gem 'thor'
 gem 'cancan'
-gem 'sqlite3'
 gem 'aws-sdk'
 gem 'paperclip'
   
