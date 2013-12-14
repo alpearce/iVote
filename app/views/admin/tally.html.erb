@@ -48,6 +48,7 @@
 			<%end%>
 			<%else %>
 			<%= content_tag :div, :class => "span2 well no" do %>
+			<% puts "GET READY FOR THE CANDIDATE URL. ARE YOU READY? I DON'T THINK YOU ARE READY" %>
 			<% puts candidate.image_url %>
 			<% if candidate.image_url != ""%>
 			<%= image_tag(candidate.image_url, :size=> "256x256")%>
