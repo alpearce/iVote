@@ -48,7 +48,7 @@
 			<%end%>
 			<%else %>
 			<%= content_tag :div, :class => "span2 well no" do %>
-			<% logger.info(candidate.image_url) %>
+			<% puts candidate.image_url %>
 			<% if candidate.image_url != ""%>
 			<%= image_tag(candidate.image_url, :size=> "256x256")%>
 			<%end%>
