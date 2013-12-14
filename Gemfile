@@ -8,7 +8,7 @@ gem "therubyracer", :platforms => :ruby
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+
   gem 'meta_request', '0.2.0'
 end
 
@@ -21,8 +21,9 @@ end
 
 group :development, :test do
 	gem 'rspec-rails'
-  gem 'sqlite3'
 end
+
+  gem 'sqlite3'
 
 group :test do
   gem 'capybara'
@@ -30,6 +31,7 @@ end
 
 group :production do
   gem 'pg'
+
 end
 gem 'thin'
 #gem 'debugger'
@@ -37,7 +39,6 @@ gem 'thor'
 gem 'cancan'
 gem 'aws-sdk'
 gem 'paperclip'
-  
 gem 'figaro'
 
 
