@@ -31,13 +31,13 @@ group :production do
   gem 'pg'
 end
 gem 'thin'
-gem 'debugger'
+#gem 'debugger'
 gem 'thor'
 gem 'cancan'
 
 gem 'aws-sdk'
 gem 'paperclip'
-
+  
 gem 'figaro'
 
 
