@@ -1,0 +1,19 @@
+require "spec_helper"
+
+describe "Listing Candidates" do
+
+  it "add candidate" do
+
+    visit candidates_path
+    page.has_content? "Listing Candidates"
+<<<<<<< HEAD
+    click_link 'New Candidate'
+    fill_in "Name", with: "Lily"
+    click_button "Create Candidate"
+=======
+    visit new_candidate_path
+>>>>>>> b042c78e32f02f715d828a42e52092536cfdb1f3
+    page.has_content? "Candidate was successfully created."
+
+  end
+end
