@@ -27,10 +27,10 @@ class VotingController < ApplicationController
     abstains = ballot.select{|k, v|
       v == "1"}
       #YOU ALSO HAVE TO CHANGE THESE NUMBERS WHEN CHANGING YES VOTES
-      if yes_validation.size > 14
+      if yes_validation.size > 18
         respond_to do |format|
-          format.html {render :text => "You may not have more than 14 YES votes. You had" + yes_validation.size.to_s, :status => 406}
-          format.json {render :text => "You may not have more than 14 YES votes.", :status => 403}
+          format.html {render :text => "You may not have more than 18 YES votes. You had" + yes_validation.size.to_s, :status => 406}
+          format.json {render :text => "You may not have more than 18 YES votes.", :status => 403}
         end
         return
       end
