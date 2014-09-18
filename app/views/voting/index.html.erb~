@@ -2,10 +2,10 @@
 	<div class="row well">
 
 		<!-- THIS IS WHAT YOU NEED TO CHANGE IN ORDER TO ALTER THE MAX NUMBER OF YES/Abstain VOTES -->
-			<h3>Candidates</h3><div class="remaining" data-remaining="7">7 YES votes remain</div>
+			<h3>Candidates</h3><div class="remaining" data-remaining="11">11 YES votes remain</div>
 			
 		 							                                                   
-			<div class="abstain-remaining" data-remaining="10000">LOTS OF ABSTAIN votes remain</div>
+			<div class="abstain-remaining" data-remaining="12">12 ABSTAIN votes remain</div>
 
 		<!---->
 
