@@ -35,7 +35,7 @@ class VotingController < ApplicationController
         return
       end
       #for closed rush you can abstain however much you want
-      if abstains.size > 8
+      if abstains.size > 0
         respond_to do |format|
           format.html {render :text => "You abstained too many times", :status => 406}
           format.json {render :text => "You abstained too many times", :status => 403}
