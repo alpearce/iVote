@@ -71,11 +71,12 @@
 	</div>
 	<div class="remaining" data-remaining="32"></div>
 	<script>
+	var list_js = <%= list %>; 
 	var max = 100;
 	var max_i = -1;
 		for (var i=0; i< list.length; i++) {
-			if (list[i] < max) {
-				max = list[i];
+			if (list_js[i] < max) {
+				max = list_js[i];
 				max_i = i;
 			}
 		}
