@@ -11,7 +11,7 @@
 			<% list.push(candidate.yes) %>
 		<%end%>
 		<% lowest = 100 %>
-		<% @list.each do |count|%>
+		<% list.each do |count|%>
 			<% if count < lowest %>
 				<% lowest = count %>
 			<% end %>
