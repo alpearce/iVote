@@ -10,7 +10,7 @@
 		<%yes_percent = candidate.yes / @number_of_votes.to_f * 100.0 %>
 		<%no_percent = candidate.no / @number_of_votes.to_f * 100.0 %>
 		<%abs_percent = candidate.abstain / @number_of_votes.to_f * 100.0 %>
-			<% if candidate.yes >= 39 %>
+			<% if yes_percent >= 50 %>
 			<%= content_tag :div, :class => "span2 well yes result_block" do %>
 			<% if candidate.picture.url != "/pictures/original/missing.png"%>
 			<%= image_tag(candidate.picture.url, :size=> "256x256")%>
