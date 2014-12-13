@@ -10,6 +10,7 @@
 		<!---->
 
 			<% @candidates.each do |candidate|%>
+			
 				<div class="span2 well candidate ui-draggable" >
 					<input class="vote" type="hidden" value="NO" />
 					<% if candidate.picture.url != "/pictures/original/missing.png"%>
