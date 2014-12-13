@@ -11,6 +11,7 @@
 			<% list.push(candidate.yes) %>
 		<%end%>
 		<% lowest = 100 %>
+		<% winner = false %>
 		<% list.each do |count|%>
 			<% if count < lowest %>
 				<% lowest = count %>
@@ -21,6 +22,7 @@
 		<%no_percent = candidate.no / @number_of_votes.to_f * 100.0 %>
 		<%abs_percent = candidate.abstain / @number_of_votes.to_f * 100.0 %>
 			<% if yes_percent > 50 %>
+			<% winner = true %>
 			<%= content_tag :div, :class => "span2 well yes result_block" do %>
 			<% if candidate.picture.url != "/pictures/original/missing.png"%>
 			<%= image_tag(candidate.picture.url, :size=> "256x256")%>
@@ -48,8 +50,8 @@
 			<%end%>
 			
 			<%=content_tag :p, {:class=> "name"} do %><%= candidate.name%>
-			<% if candidate.yes == lowest %>
-			<span>Lowest</span>
+			<% if (candidate.yes == lowest) && (not winner) %>
+			<span> - Lowest</span>
 			<% end %>
 			<div class="result_container"><p class="results"><%= "Yes: " + candidate.yes.to_s + " Abstain : " + candidate.abstain.to_s + " No: " + candidate.no.to_s%></p><%end%>
 				<div class="progress">
